@@ -56,4 +56,4 @@ from sales
 inner join employees on employees.EmployeeID = sales.EmployeeID
 inner join products on products.ProductID = sales.ProductID
 group by employees.EmployeeID, products.ProductID
-order by sum(sales.Quantity) desc;
+order by employees.FirstName;
