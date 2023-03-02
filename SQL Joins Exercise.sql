@@ -25,7 +25,7 @@ limit 2;
 
 /* joins: find the name of the department, and the name of the category for Appliances and Games */
 
-select departments.Name, categories.Name 
+select departments.Name as 'Department Name', categories.Name as 'Category Name'
 from departments
 inner join categories on categories.DepartmentID = departments.DepartmentID
 where categories.Name = 'Appliances' or categories.name = 'Games';
@@ -33,13 +33,13 @@ where categories.Name = 'Appliances' or categories.name = 'Games';
 /* joins: find the product name, total # sold, and total price sold,
  for Eagles: Hotel California --You may need to use SUM() */
  
- select products.Name, sum(sales.Quantity) as 'Total Sold', sum(sales.Quantity * sales.PricePerUnit) as 'Total Price'
+ select products.Name as 'Product', sum(sales.Quantity) as 'Total Sold', sum(sales.Quantity * sales.PricePerUnit) as 'Total Price'
  from	products
  inner join sales on sales.ProductID = products.ProductID
  where products.ProductID = 97;
 
 /* joins: find Product name, reviewer name, rating, and comment on the Visio TV. (only return for the lowest rating!) */
-select products.name, reviews.Reviewer, reviews.Rating, reviews.Comment
+select products.name as 'Product', reviews.Reviewer, reviews.Rating, reviews.Comment
 from products
 inner join reviews on reviews.ProductID = products.ProductID
 where products.ProductID = 857 and reviews.Rating = 1;
